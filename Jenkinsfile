@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage('') {
+    stage('error') {
       steps {
         sh 'echo \'Welcome to Blue Ocean\''
         git(url: 'https://github.com/anveshiv/simple_maven.git', branch: 'master', changelog: true, poll: true)
@@ -22,7 +22,7 @@ pipeline {
 
     stage('Deploy') {
       steps {
-        sh 'java -jar target/'
+        sh 'java -jar target/gs-maven-0.1.0.jar'
       }
     }
 
